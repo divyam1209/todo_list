@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Todo list</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+    <div class="box">
+        <h1>Todo List</h1>
+    </div>
+    <div class="box">
+        <% for(var i=0; i < ejes.length; i++){ %>
+            <p><%= ejes[i] %></p>
+        <%}%>
+        
+        <form action="/" method="POST">
+            <input type="text" name = "d1d1" placeholder="Enter the task">
+            <button type="submit">+</button>
+        </form>
+    </div>
+</body>
+</html>
