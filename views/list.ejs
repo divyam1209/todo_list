@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Todo list</title>
+    <title>Todo List</title>
     <link rel="stylesheet" href="css/styles.css">
-
 </head>
 <body>
     <div class="box">
         <h1>Todo List</h1>
     </div>
+
+    <!-- Add new task -->
     <div class="box">
-        <% for(var i=0; i < ejes.length; i++){ %>
-            <p><%= ejes[i] %></p>
-        <%}%>
-        
         <form action="/" method="POST">
-            <input type="text" name = "d1d1" placeholder="Enter the task">
+            <input type="text" name="d1d1" placeholder="Enter the task">
             <button type="submit">+</button>
+        </form>
+    </div>
+
+    <!-- Unified update & delete form -->
+    <div class="box">
+        <form action="/action" method="POST">
+            <% items.forEach(function(item) { %>
+                <div class="todo-item">
+                    <input type="checkbox" name="item" value="<%= item.id %>">
+                    <label><%= item.text %></label>
+                    <input type="text" name="updated_<%= item.id %>" placeholder="Update task...">
+                </div>
+            <% }); %>
+            <div class="btn-row">
+                <button type="submit" name="action" value="update">Update Selected</button>
+                <button type="submit" name="action" value="delete">Delete Selected</button>
+            </div>
         </form>
     </div>
 </body>
