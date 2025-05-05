@@ -11,24 +11,31 @@
 
     <!-- Add new task -->
     <div class="box">
-        <form action="/" method="POST">
+        <form action="/" method="POST" class="add-task-form">
             <input type="text" name="d1d1" placeholder="Enter the task">
             <button type="submit">+</button>
         </form>
     </div>
 
-    <!-- Unified update & delete form -->
+    <!-- Update/Delete tasks -->
     <div class="box">
         <form action="/action" method="POST">
             <% items.forEach(function(item) { %>
                 <div class="todo-item">
-                    <input type="checkbox" name="item" value="<%= item.id %>">
-                    <label><%= item.text %></label>
-                    <input type="text" name="updated_<%= item.id %>" placeholder="Update task...">
+                    <div class="task-row">
+                        <input type="checkbox" name="item" value="<%= item.id %>">
+                        <label><%= item.text %></label>
+                    </div>
+                    <div class="input-row">
+                        <input type="text" name="updated_<%= item.id %>" placeholder="Update task...">
+                    </div>
                 </div>
             <% }); %>
+
             <div class="btn-row">
                 <button type="submit" name="action" value="update">Update Selected</button>
+            </div>
+            <div class="btn-row">
                 <button type="submit" name="action" value="delete">Delete Selected</button>
             </div>
         </form>
